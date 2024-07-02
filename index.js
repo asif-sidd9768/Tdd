@@ -13,6 +13,12 @@ const add = (input) => {
         reg = new RegExp(`,|\\n`)
     }
 
+    if(input.split(reg).some(n => n < 0)){
+        const negativeNumbers = input.split(reg).filter(n => n < 0).join(", ")
+        console.log(negativeNumbers)
+        throw new Error(`negative numbers not allowed ${negativeNumbers}`)
+    }
+
     return input.split(reg).reduce((acc, curr) => acc+Number(curr), 0)
 }
 
