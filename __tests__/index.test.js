@@ -24,4 +24,8 @@ describe('Add calculator', () => {
     test('should ignore numbers above greater or equals to 1000', () => {
         expect(add("2,1000,1")).toBe(3)
     });
+
+    test('should support any length of delimeter', () => {
+        expect(add("//[***]\n1***2***3")).toBe(6)
+    });
 });
