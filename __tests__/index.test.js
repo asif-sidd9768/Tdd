@@ -28,4 +28,8 @@ describe('Add calculator', () => {
     test('should support any length of delimeter', () => {
         expect(add("//[***]\n1***2***3")).toBe(6)
     });
+
+    test('should allow multiple delimeters', () => {
+        expect(add("//[*][%]\n1*2%3")).toBe(6)
+    });
 });
