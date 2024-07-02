@@ -19,9 +19,13 @@ const add = (input) => {
         throw new Error(`negative numbers not allowed ${negativeNumbers}`)
     }
 
-    return input.split(reg).reduce((acc, curr) => acc+Number(curr), 0)
+    return input.split(reg).reduce((acc, curr) => {
+        const currNum = Number(curr)
+        if(currNum >= 1000){
+            return acc
+        }
+        return acc + currNum
+    }, 0)
 }
-
-add("//;\n1;2")
 
 module.exports = add
